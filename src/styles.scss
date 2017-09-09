@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+//globals-colors
+$dark-grey: #2C363F;
+$green: #52b788;
+$dark-green: #498467;
+$red: #FB3640;
+$grey: grey;
+$light-grey: #f2f2f2;
+$light-op-grey: rgba($grey, .5);
+$purple: #9EA3B0;
+$blue: #00ABE7;
+$black: black;
+$white: white;
+
+
+$bootstrap-blue:#007bff;//logo color
+
+//globals-animation-times
+$quick: .5s;
+$quicker: .3s;
+
+//globals-radius
+$radius: 10px;
+$radius-10: 10%;
+$radius-full: 100%;
+$radius-small: .28571429rem;
+//globals-border
+$border: toEm(1px) solid $light-op-grey;
+$border-black: toEm(1px) solid $black;
+$border-light-grey: toEm(1px) solid rgba(34, 36, 38, .15);
+
+
+//globals-shadow
+$shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
+$shadow-2:0 10px 40px 0 rgba(62,57,107,0.13),
+0 2px 9px 0 rgba(62,57,107,0.1);
+$shadow-3: 0px 10px 15px rgba(black, .1);
+
+/*global*/
+.navbar-brand{
+    font-family: 'Baloo Tammudu', sans-serif;
+    font-size: 2em !important;
+}
+body{
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: #f2f2f2 !important;
+
+}
+
+.card{
+  transition: .5s;
+  text-align: center;
+  //border: 1px solid rgba(34, 36, 38, .15); might keep ....
+  border: none !important;
+  box-shadow: $shadow;
+  border-radius: 6px;
+  &-header{
+    font-family: 'Baloo Tammudu', sans-serif;
+    font-weight: bold;
+    border-bottom: none !important;
+  }
+
+  &:hover{
+    box-shadow: $shadow-2;
+  }
+
+}

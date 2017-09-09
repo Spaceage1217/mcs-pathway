@@ -1,0 +1,24 @@
+$bootstrap-blue:#007bff;
+
+.card{
+  position: relative;
+  &:last-child{
+    &:before{
+      //display: none;
+    }
+  }
+  &:before{
+   content:"";
+   position: absolute;
+   height: 130%;
+   width: 3px;
+   background: $bootstrap-blue;
+   box-shadow: 0 10px 40px rgba($bootstrap-blue,1);
+   z-index:-1;
+   left: 50%;
+  }
+ &-header{
+   padding-top: 13px;
+   padding-bottom: 0px;
+ }
+}

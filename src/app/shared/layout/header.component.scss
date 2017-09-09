@@ -1,0 +1,13 @@
+$bootstrap-blue:#007bff;
+.nav{
+  &-link{
+    color: grey;
+    font-weight: bold;
+    &:hover{
+      color: black;
+    }
+  }
+}
+.active{
+  color:$bootstrap-blue;
+}

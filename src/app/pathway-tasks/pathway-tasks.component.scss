@@ -1,0 +1,19 @@
+$bootstrap-blue:#007bff;
+$bootstrap-green:#28a745;
+#pathway{
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  .btn-complete{
+    font-weight: bold;
+    vertical-align: middle;
+    width: 200px;
+    margin-top: 40px;
+    border-radius: 6px;
+    box-shadow: 0px 5px 20px rgba($bootstrap-green,.5);
+  }
+
+  li:nth-child(n+1){
+     margin-top: 40px;
+  }
+}

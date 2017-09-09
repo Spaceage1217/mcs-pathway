@@ -1,0 +1,12 @@
+  <ul id="pathway" class="container">
+    <li *ngFor="let task of tasks" class= "row">
+      <pathway-task class="col-12"  [task]="task"></pathway-task>
+    </li>
+    <a routerLink="/" class="btn btn-lg btn-complete btn-success">
+      Done <i class="fa fa-check" aria-hidden="true"></i>
+
+      <!-- Will figure out how to use entypo svg fully icons later on i guess...sigh
+       <ng-icon  svgIcon="check" svgColor='white' size='10px' ></ng-icon>
+    -->
+    </a>
+  </ul>
