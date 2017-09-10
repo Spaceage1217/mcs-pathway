@@ -1,8 +1,16 @@
-<div class="card">
+<div class="card"  [ngClass]="{disabled: isDisabled}">
   <h3 class="card-header">{{_task.id}}</h3>
   <div class="card-body">
     <h4 class="card-title">{{_task.title}}</h4>
     <p class="card-text">{{_task.disc}}</p>
-    <a href="{{_task.link}}" class="btn btn-primary">{{callToAction}}</a>
+    <a [ngClass]="{disabled: isDisabled}" href="{{_task.link}}" target="_blank" (click)="showQuiz()" class="btn btn-primary">{{callToAction}}</a>
+  </div>
+</div>
+<div class="card quiz " [ngClass]="{'quiz-show': _task.started}">
+  <h3 class="card-header bg-danger text-white ">Quiz!</h3>
+  <div class="card-body">
+    <h4 class="card-title">Finished?</h4>
+    <p class="card-text">Take a quiz on the {{_task.category | lowercase}} and prove your skills!</p>
+    <button class="btn btn-dark">Quiz Me</button>
   </div>
 </div>

@@ -1,13 +1,17 @@
 $bootstrap-blue:#007bff;
+$bootstrap-green:#28a745;
+$bootstrap-grey:#868e96;
+$quick: .5s;
 
 .card{
   position: relative;
-  &:last-child{
-    &:before{
-      //display: none;
-    }
-  }
+  width: 30%;
+  left: 0%;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
   &:before{
+
    content:"";
    position: absolute;
    height: 130%;
@@ -22,3 +26,36 @@ $bootstrap-blue:#007bff;
    padding-bottom: 0px;
  }
 }
+.card.disabled{
+
+    &:before{
+      background: $bootstrap-grey;
+      box-shadow: 0 10px 40px rgba($bootstrap-grey,1);
+
+    }
+  
+}
+
+.quiz{
+  /*
+    slide under the learn card on mobile
+    have them stack
+  */
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  z-index: -1;
+  &:before{
+    display: none;
+  }
+  &-show{
+    transition: left $quick , opacity $quick;
+    left: 80%;
+    opacity: 1;
+  }
+}
+
+//make sure they go in order from greatest to least in terms of size
+@media (max-width: 1024px) { .card{width: 50%;} }
+@media (max-width: 500px) { .card{width: 100%;} }

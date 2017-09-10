@@ -16,6 +16,7 @@ export class PathwayTasksComponent implements OnInit {
   ) {}
   pathway:Pathway;
   tasks:Task[];
+  completed: boolean;
 
     ngOnInit(){
       this.route.data.subscribe(
@@ -25,8 +26,16 @@ export class PathwayTasksComponent implements OnInit {
             let _pathway = pathway.article;
             this.pathway = _pathway;
             this.tasks=_pathway.tasks;
+            this.completed = _pathway.completed;
+            console.log(this.pathway);
             console.log(this.tasks);
           }
       )
+    }
+
+    disableTask(i:number){
+      if(!(this.tasks[i--].id===1) && this.tasks[i--].completed===false){
+        return true;
+      }
     }
 }

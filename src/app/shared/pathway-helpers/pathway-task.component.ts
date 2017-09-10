@@ -10,6 +10,7 @@ export class PathwayTaskComponent {
   pathways:Pathway[];
   _task:Task;
   callToAction:string;
+  @Input() isDisabled:boolean;
   @Input() set task(task:Task){
     this._task=task;
     if(task.category ==="Article"){
@@ -21,6 +22,17 @@ export class PathwayTaskComponent {
     else{
       this.callToAction ="Submit";
     }
+  }
+
+  showQuiz(){
+    console.log(this._task.questions);
+    if(
+        this._task.category !== "Project"
+        && this._task.questions.length !== 0
+        && !this._task.started
+      ){
+        this._task.started = true;
+      }
   }
 
 

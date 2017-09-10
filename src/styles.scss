@@ -12,8 +12,10 @@ $blue: #00ABE7;
 $black: black;
 $white: white;
 
-
+//bootstarp colors
 $bootstrap-blue:#007bff;//logo color
+$bootstrap-green:#28a745;
+$bootstrap-grey:#868e96;
 
 //globals-animation-times
 $quick: .5s;
@@ -37,6 +39,18 @@ $shadow-2:0 10px 40px 0 rgba(62,57,107,0.13),
 $shadow-3: 0px 10px 15px rgba(black, .1);
 
 /*global*/
+
+.btn{
+  cursor: pointer !important;
+}
+.btn:disabled, a.disabled{
+  opacity: 1 !important;
+  background-color: $bootstrap-grey !important;
+  border: 0px solid rgba(transparent,0);
+  box-shadow: none !important;
+  cursor:not-allowed !important;
+}
+
 .navbar-brand{
     font-family: 'Baloo Tammudu', sans-serif;
     font-size: 2em !important;
@@ -48,7 +62,7 @@ body{
 }
 
 .card{
-  transition: .5s;
+  transition: box-shadow $quick;
   text-align: center;
   //border: 1px solid rgba(34, 36, 38, .15); might keep ....
   border: none !important;
@@ -61,6 +75,7 @@ body{
   }
 
   &:hover{
+    transition: $quick;
     box-shadow: $shadow-2;
   }
 
