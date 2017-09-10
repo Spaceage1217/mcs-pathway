@@ -33,7 +33,7 @@ $quick: .5s;
       box-shadow: 0 10px 40px rgba($bootstrap-grey,1);
 
     }
-  
+
 }
 
 .quiz{
@@ -53,6 +53,7 @@ $quick: .5s;
     transition: left $quick , opacity $quick;
     left: 80%;
     opacity: 1;
+    z-index: 0;
   }
 }
 
