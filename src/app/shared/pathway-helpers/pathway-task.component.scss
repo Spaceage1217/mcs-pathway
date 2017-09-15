@@ -1,6 +1,7 @@
 $bootstrap-blue:#007bff;
 $bootstrap-green:#28a745;
 $bootstrap-grey:#868e96;
+$off-white: rgba(0,0,0,.03);
 $quick: .5s;
 
 .card{
@@ -22,12 +23,17 @@ $quick: .5s;
    left: 50%;
   }
  &-header{
+   background: rgba($bootstrap-blue,1);
+   color: white;
    padding-top: 13px;
    padding-bottom: 0px;
  }
 }
 .card.disabled{
-
+    .card-header{
+      color:black;
+      background: $off-white;
+    }
     &:before{
       background: $bootstrap-grey;
       box-shadow: 0 10px 40px rgba($bootstrap-grey,1);

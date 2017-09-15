@@ -1,15 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input ,Output,EventEmitter} from '@angular/core';
+import { ActivatedRoute,Router } from '@angular/router';
 
-import { Pathway,Task  } from '../models';
+import { Pathway,Task,Question  } from '../models';
 @Component({
   selector: 'pathway-task',
   templateUrl: './pathway-task.component.html',
   styleUrls: ['./pathway-task.component.scss']
 })
 export class PathwayTaskComponent {
-  pathways:Pathway[];
   _task:Task;
   callToAction:string;
+  sub:any;
+  @Output() questions = new EventEmitter<Question[]>()
   @Input() isDisabled:boolean;
   @Input() set task(task:Task){
     this._task=task;
@@ -23,6 +25,10 @@ export class PathwayTaskComponent {
       this.callToAction ="Submit";
     }
   }
+  constructor(
+   private route: ActivatedRoute,
+   private router: Router
+ ) {}
 
   showQuiz(){
     console.log(this._task.questions);
@@ -35,5 +41,12 @@ export class PathwayTaskComponent {
       }
   }
 
+
+
+
+  loadQuiz(){
+      this.questions.emit(this._task.questions);
+
+  }
 
 }

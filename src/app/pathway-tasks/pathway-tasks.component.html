@@ -1,6 +1,9 @@
+
+<div *ngIf="!hidden">
+
   <ul id="pathway" class="container">
     <li *ngFor="let task of tasks; let i = index" class= "row">
-      <pathway-task class="col-12"  [task]="task" [isDisabled]="disableTask(i)"></pathway-task>
+      <pathway-task (questions)="loadQuestions($event)" class="col-12"  [task]="task" [isDisabled]="disableTask(i)"></pathway-task>
     </li>
     <button routerLink="/"
       class="btn btn-lg btn-complete btn-success"
@@ -9,6 +12,15 @@
       Done <i class="fa fa-check" aria-hidden="true"></i>
     </button>
   </ul>
+</div>
+
+<div *ngIf="hidden">
+  <pathway-quiz [questions]= "questions" (showTasks)="loadTasks($event)"></pathway-quiz>
+</div>
+
+
+
+
 
 
         <!-- Will figure out how to use entypo svg fully icons later on i guess...sigh

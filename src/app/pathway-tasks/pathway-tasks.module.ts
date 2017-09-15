@@ -7,10 +7,12 @@ import { PathwayTasksResolver } from './pathway-resolver.service';
 import { SharedModule } from '../shared';
 
 
+
 const pathwayTasksRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'paths/:id',
     component: PathwayTasksComponent,
+
     resolve: {
       article: PathwayTasksResolver
     }

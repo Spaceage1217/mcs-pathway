@@ -7,7 +7,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';// for svg icons
 
 import {
   PathwayListComponent,
-  PathwayTaskComponent
+  PathwayTaskComponent,
+  PathwayQuizComponent
 } from './pathway-helpers';
 
 import{
@@ -26,6 +27,7 @@ import{
   declarations: [
     PathwayListComponent,
     PathwayTaskComponent,
+    PathwayQuizComponent,
     IconComponent,
 
   ],
@@ -35,6 +37,7 @@ import{
     IconComponent,
     PathwayListComponent,
     PathwayTaskComponent,
+    PathwayQuizComponent,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

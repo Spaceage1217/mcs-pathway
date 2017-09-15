@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   Pathway,
-  Task
+  Task,
+  Question
 } from '../shared';
 @Component({
   selector: 'ptahway-tasks',
@@ -17,6 +18,8 @@ export class PathwayTasksComponent implements OnInit {
   pathway:Pathway;
   tasks:Task[];
   completed: boolean;
+  hidden:boolean= false;
+  questions:Question[];
 
     ngOnInit(){
       this.route.data.subscribe(
@@ -27,8 +30,6 @@ export class PathwayTasksComponent implements OnInit {
             this.pathway = _pathway;
             this.tasks=_pathway.tasks;
             this.completed = _pathway.completed;
-            console.log(this.pathway);
-            console.log(this.tasks);
           }
       )
     }
@@ -37,5 +38,13 @@ export class PathwayTasksComponent implements OnInit {
       if(!(this.tasks[i--].id===1) && this.tasks[i--].completed===false){
         return true;
       }
+    }
+
+    loadQuestions(questions:Question[]){
+      this.hidden=true;
+      this.questions = questions;
+    }
+    loadTasks(toggle){
+      this.hidden = false;
     }
 }

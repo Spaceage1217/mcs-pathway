@@ -1,0 +1,37 @@
+$shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
+$bootstrap-black:#343a40;
+$bootstrap-green:#28a745;
+
+
+.card.question{
+  text-align: left;
+  padding: 40px;
+  .btn{
+    width: 150px;
+    box-shadow: $shadow;
+    &-dark{
+      width: 100px;
+      margin-bottom: 15px;
+      transform: translate(-18px,-18px);
+    }
+    &-save{
+      &:hover{
+        background:$bootstrap-green;
+        color: white;
+      }
+    }
+  }
+}
+.nav-buttons{
+  text-align: right;
+  button{
+    &:hover{
+      background:$bootstrap-black;
+      color: white;
+    }
+  }
+}
+.d-flex{
+  margin-top: 40px;
+  justify-content: space-between;
+}

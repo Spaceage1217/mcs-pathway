@@ -11,6 +11,6 @@
   <div class="card-body">
     <h4 class="card-title">Finished?</h4>
     <p class="card-text">Take a quiz on the {{_task.category | lowercase}} and prove your skills!</p>
-    <button class="btn btn-dark">Quiz Me</button>
+    <button (click)="loadQuiz()" class="btn btn-danger">Quiz Me</button>
   </div>
 </div>
