@@ -12,6 +12,8 @@ export class PathwayQuizComponent implements OnInit {
   completed: boolean;
   index: number = 0;
   score: number = 0;
+  choices:number[] = [];
+
   question:Question;
   @Input() questions:Question[];
   @Output() save = new EventEmitter<boolean>()
@@ -25,7 +27,6 @@ export class PathwayQuizComponent implements OnInit {
 
     ngOnInit(){
       this.question=this.questions[0];
-      console.log(this.question);
       this.quizForm = new FormGroup({
         'choice': new FormControl(null),
       });
@@ -43,13 +44,23 @@ export class PathwayQuizComponent implements OnInit {
       if(this.index>0){
         this.index = this.index-1;
         this.question=this.questions[this.index];
+
       }
     }
-    onSubmit(){
-      console.log(this.quizForm.value);
-      let choice = this.quizForm.value.choice;// creates pointer
-      choice.selected = true;
-      console.log('whats been selected?', this.questions[0]);
+    onSubmit(i:number){
+      let choice;
+      let previousIndex = i-1;
+      choice = this.quizForm.value.choice;// creates pointer
+      let question = this.questions[previousIndex];
+
+      if(choice){
+          this.choices[previousIndex]=choice.id;
+          question.selected = choice.id;
+      }
+      else{
+          question.selected = this.choices[previousIndex];
+      }
+      this.quizForm.reset();
     }
     loadTasks(){
       //when you go back show the tasks again
