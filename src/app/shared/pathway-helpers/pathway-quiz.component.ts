@@ -30,7 +30,13 @@ export class PathwayQuizComponent implements OnInit {
   ) {}
 
     ngOnInit(){
-      this.question=this.questions[0];
+       this.number_of_questions = this.questions.length;
+       this.question=this.questions[0];
+      for( var i =0; i< this.number_of_questions; i++)
+      {
+        this.choices[i]=0;
+      }
+
       this.quizForm = new FormGroup({
         'choice': new FormControl(null),
       });
@@ -52,13 +58,18 @@ export class PathwayQuizComponent implements OnInit {
     }
 
     onSubmit(){
+      //need to add alert to let user know if they left any questions blank
         this.saveLocaly(this.index+1);
         let that = this;
-         this.number_of_questions = this.questions.length;
+
          this.questions.forEach(function(question,index)
            {
-             if(question.choices[that.choices[index]-1].correct)
-                  that.points+=1;
+             let answer = that.choices[index-1];
+             if(answer != null){
+              if(question.choices[answer].correct)
+                    that.points+=1;
+             }
+
          });
          this.score = (this.points/this.number_of_questions)*100;
          this.points_needed = Math.floor(this.number_of_questions * .8);
@@ -73,6 +84,7 @@ export class PathwayQuizComponent implements OnInit {
       let choice;
       let previousIndex = index-1;
       choice = this.quizForm.value.choice;// creates pointer
+
       let question = this.questions[previousIndex];
 
       if(choice){
