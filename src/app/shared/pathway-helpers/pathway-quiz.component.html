@@ -1,7 +1,6 @@
 
 <div class="container">
-
-  <div class="card question">
+  <div [hidden]="show_score_card" class="card question">
     <form [formGroup]="quizForm">
       <button (click)=loadTasks()  class="btn btn-dark">
         <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
@@ -37,4 +36,17 @@
     </div>
   </form>
   </div>
+
+  <div [hidden]="!show_score_card" class="card question score">
+    <button (click)=loadTasks()  class="btn btn-dark">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+    </button>
+    <h5 class="score-title">How did you do?</h5>
+    <h6 class="score-total">You scored {{score}}%</h6>
+    <h6>{{pass? 'Great Job ': 'Try again '}}</h6>
+    <button class="btn btn-danger" *ngIf="!pass" (click)="resetQuiz()">Try again</button>
+    <button class="btn btn-primary" *ngIf="pass" (click)="loadTasks()">Next Task</button>
+  </div>
+
+
 </div>

@@ -13,6 +13,8 @@ export class PathwayQuizComponent implements OnInit {
   points: number = 0;
   points_needed: number = 0;
   score: number = 0;
+  pass: boolean = false;
+  show_score_card: boolean = false;
   choices:number[] = [];
 
   question:Question;
@@ -32,7 +34,6 @@ export class PathwayQuizComponent implements OnInit {
       this.quizForm = new FormGroup({
         'choice': new FormControl(null),
       });
-      console.log(this.question);
     }
 
 
@@ -41,7 +42,6 @@ export class PathwayQuizComponent implements OnInit {
         this.index = this.index + 1;
         this.question=this.questions[this.index];
       }
-      console.log(this.index);
       this.saveLocaly(this.index);
     }
     previousQuestion(){
@@ -62,14 +62,12 @@ export class PathwayQuizComponent implements OnInit {
          });
          this.score = (this.points/number_of_questions)*100;
          this.points_needed = Math.floor(number_of_questions * .8);
-         console.log("you scored"+ this.score);
-         console.log('you got '+ this.points+ ' you needed' + this.points_needed);
          if( this.points >= this.points_needed)
          {
-
+            this.pass = true;
             this.completed.emit(true);
          }
-
+         this.show_score_card= true;
     }
     saveLocaly(index: number){
       let choice;
@@ -94,5 +92,17 @@ export class PathwayQuizComponent implements OnInit {
     }
     saveQuiz(){
       this.save.emit();
+    }
+
+    resetQuiz(){
+      this.index = 0;
+      this.points = 0;
+      this.points_needed = 0;
+      this.score = 0;
+      this.pass = false;
+      this.show_score_card = false;
+      this.choices = [];
+      this.question=this.questions[0];
+      this.quizForm.reset();
     }
 }
