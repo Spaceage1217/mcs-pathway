@@ -58,15 +58,16 @@ export class PathwayQuizComponent implements OnInit {
     }
 
     onSubmit(){
-      //need to add alert to let user know if they left any questions blank
+      //add alert to let user know if they leave question blank.
+        console.log(this.choices.length);
         this.saveLocaly(this.index+1);
         let that = this;
 
          this.questions.forEach(function(question,index)
            {
-             let answer = that.choices[index-1];
+             let answer = that.choices[index]-1;
              if(answer != null){
-              if(question.choices[answer].correct)
+               if(question.choices[answer].correct)
                     that.points+=1;
              }
 
