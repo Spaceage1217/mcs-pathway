@@ -41,11 +41,17 @@
     <button (click)=loadTasks()  class="btn btn-dark">
       <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
     </button>
-    <h5 class="score-title">How did you do?</h5>
-    <h6 class="score-total">You scored {{score}}%</h6>
-    <h6>{{pass? 'Great Job ': 'Try again '}}</h6>
-    <button class="btn btn-danger" *ngIf="!pass" (click)="resetQuiz()">Try again</button>
+    <h3 class="score-title">How did you do?</h3>
+    <h2 class="score-total"> <span>You scored</span>{{score}}%</h2>
+    <h2 class="score-total"> <span>and got </span>{{points}}/{{number_of_questions}} <h6>questions right.</h6></h2>
+    <!-- <h6>{{pass? 'Great Job! ': 'You can do it give it another try!'}}</h6> -->
+  <div class="d-flex-2">
+    <button class="btn btn-danger" *ngIf="!pass" (click)="resetQuiz()">Retake</button>
+    <button class="btn btn-danger" *ngIf="pass" (click)="resetQuiz()">Retake for a better score</button>
     <button class="btn btn-primary" *ngIf="pass" (click)="loadTasks()">Next Task</button>
+
+  </div>
+
   </div>
 
 

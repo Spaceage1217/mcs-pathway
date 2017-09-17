@@ -1,14 +1,16 @@
 $shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
 $bootstrap-black:#343a40;
 $bootstrap-green:#28a745;
+$bootstrap-blue:#007bff;
 
 
 .card.question{
   text-align: left;
   padding: 40px;
   .btn{
-    width: 150px;
+    width: auto;
     box-shadow: $shadow;
+    text-transform: capitalize;
     &-dark{
       width: 100px;
       margin-bottom: 15px;
@@ -22,7 +24,22 @@ $bootstrap-green:#28a745;
     }
   }
 }
-.card.score{
+.score{
+ &-title{
+    font-family:'Baloo Tammudu', sans-serif;
+    text-transform: uppercase;
+    color: $bootstrap-black;
+  }
+  &-total{
+    span{
+      color: $bootstrap-green;
+      font-size: 45%;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+  }
 
 }
 .nav-buttons{
@@ -35,6 +52,13 @@ $bootstrap-green:#28a745;
   }
 }
 .d-flex{
+  //for button positioning on question card and score card
   margin-top: 40px;
   justify-content: space-between;
+  &-2{
+    justify-content: flex-start;
+    button{
+      margin-right:  10px;
+    }
+  }
 }

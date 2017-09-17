@@ -13,10 +13,10 @@ export class PathwayQuizComponent implements OnInit {
   points: number = 0;
   points_needed: number = 0;
   score: number = 0;
+  number_of_questions: number = 0;
   pass: boolean = false;
-  show_score_card: boolean = false;
+  show_score_card: boolean = false;//set to true to see score card without having to answer qustions
   choices:number[] = [];
-
   question:Question;
   @Input() questions:Question[];
   @Output() save = new EventEmitter();
@@ -54,14 +54,14 @@ export class PathwayQuizComponent implements OnInit {
     onSubmit(){
         this.saveLocaly(this.index+1);
         let that = this;
-        let number_of_questions = this.questions.length;
+         this.number_of_questions = this.questions.length;
          this.questions.forEach(function(question,index)
            {
              if(question.choices[that.choices[index]-1].correct)
                   that.points+=1;
          });
-         this.score = (this.points/number_of_questions)*100;
-         this.points_needed = Math.floor(number_of_questions * .8);
+         this.score = (this.points/this.number_of_questions)*100;
+         this.points_needed = Math.floor(this.number_of_questions * .8);
          if( this.points >= this.points_needed)
          {
             this.pass = true;
