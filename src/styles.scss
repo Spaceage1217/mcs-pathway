@@ -23,7 +23,7 @@ $quick: .5s;
 $quicker: .3s;
 
 //globals-radius
-$radius: 10px;
+$radius: 6px;
 $radius-10: 10%;
 $radius-full: 100%;
 $radius-small: .28571429rem;
@@ -68,7 +68,7 @@ body{
   //border: 1px solid rgba(34, 36, 38, .15); might keep ....
   border: none !important;
   box-shadow: $shadow;
-  border-radius: 6px;
+  border-radius: $radius;
   &-header{
     font-family: 'Baloo Tammudu', sans-serif;
     font-weight: bold;

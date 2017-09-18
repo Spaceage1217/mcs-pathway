@@ -11,7 +11,8 @@ export class PathwayTaskComponent {
   _task:Task;
   callToAction:string;
   sub:any;
-  @Output() questions = new EventEmitter<Question[]>()
+  @Output() questions = new EventEmitter<Question[]>();
+  @Output() taskID = new EventEmitter<number>();
   @Input() isDisabled:boolean;
   @Input() set task(task:Task){
     this._task=task;
@@ -31,7 +32,7 @@ export class PathwayTaskComponent {
  ) {}
 
   showQuiz(){
-    console.log(this._task.questions);
+    console.log(this._task);
     if(
         this._task.category !== "Project"
         && this._task.questions.length !== 0
@@ -46,6 +47,7 @@ export class PathwayTaskComponent {
 
   loadQuiz(){
       this.questions.emit(this._task.questions);
+      this.taskID.emit(this._task.id);
 
   }
 

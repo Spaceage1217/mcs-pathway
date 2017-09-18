@@ -3,19 +3,32 @@
 
   <ul id="pathway" class="container">
     <li *ngFor="let task of tasks; let i = index" class= "row">
-      <pathway-task (questions)="loadQuestions($event)" class="col-12"  [task]="task" [isDisabled]="disableTask(i)"></pathway-task>
+      <pathway-task
+      (questions)="loadQuestions($event)"
+      (taskID)="setTaskID($event)" class="col-lg-4 col-6"
+      [task]="task"
+      [isDisabled]="disableTask(i)"></pathway-task>
     </li>
-    <button routerLink="/"
-      class="btn btn-lg btn-complete btn-success"
-      [disabled]="!completed"
-      >
-      Done <i class="fa fa-check" aria-hidden="true"></i>
-    </button>
+    <div class= "row">
+      <div class="col-lg-4 col-6 center-button">
+        <button
+          routerLink="/"
+          class="btn btn-lg btn-complete btn-success"
+          [disabled]="!completed"
+          >
+          Done <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
   </ul>
 </div>
 
 <div *ngIf="hidden">
-  <pathway-quiz [questions]= "questions" (showTasks)="loadTasks($event)"></pathway-quiz>
+  <pathway-quiz
+   [questions]= "questions"
+   (completed)="completeTask($event)"
+   (showTasks)="loadTasks()"></pathway-quiz>
 </div>
 
 

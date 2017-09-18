@@ -1,6 +1,8 @@
 
 <div class="container">
+
   <div [hidden]="show_score_card" class="card question">
+    <span [ngStyle]="{'width': progress+'%'}" class="progress"></span>
     <form [formGroup]="quizForm">
       <button (click)=loadTasks()  class="btn btn-dark">
         <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
@@ -38,6 +40,7 @@
   </div>
 
   <div [hidden]="!show_score_card" class="card question score">
+    <span [ngStyle]="{'width': progress+'%'}" class="progress completed"></span>
     <button (click)=loadTasks()  class="btn btn-dark">
       <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
     </button>

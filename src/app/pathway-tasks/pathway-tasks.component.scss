@@ -2,20 +2,22 @@ $bootstrap-blue:#007bff;
 $bootstrap-green:#28a745;
 $bootstrap-grey:#868e96;
 #pathway{
-  text-align: center;
-  justify-content: center;
-  position: relative;
   .btn-complete{
     font-weight: bold;
     vertical-align: middle;
-    width: 200px;
+    width: auto;
     margin-top: 40px;
     border-radius: 6px;
     box-shadow: 0px 5px 20px rgba($bootstrap-green,.5);
+    position: relative;
   }
 
 
   li:nth-child(n+1){
      margin-top: 40px;
+  }
+  .center-button{
+    display: flex;
+    justify-content: center;
   }
 }

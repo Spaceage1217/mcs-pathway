@@ -14,6 +14,7 @@ export class PathwayQuizComponent implements OnInit {
   points_needed: number = 0;
   score: number = 0;
   number_of_questions: number = 0;
+  progress: number = 0;
   pass: boolean = false;
   show_score_card: boolean = false;//set to true to see score card without having to answer qustions
   choices:number[] = [];
@@ -47,18 +48,22 @@ export class PathwayQuizComponent implements OnInit {
      if(this.index<this.questions.length){
         this.index = this.index + 1;
         this.question=this.questions[this.index];
+        this.saveLocaly(this.index);
+        this.progress += 100/this.number_of_questions;
       }
-      this.saveLocaly(this.index);
+
     }
     previousQuestion(){
       if(this.index>0){
         this.index = this.index-1;
         this.question=this.questions[this.index];
+        this.progress -= 100/this.number_of_questions;
       }
     }
 
     onSubmit(){
       //add alert to let user know if they leave question blank.
+        this.progress += 100/this.number_of_questions;
         console.log(this.choices.length);
         this.saveLocaly(this.index+1);
         let that = this;
@@ -116,6 +121,7 @@ export class PathwayQuizComponent implements OnInit {
       this.show_score_card = false;
       this.choices = [];
       this.question=this.questions[0];
+      this.progress = 0;
       this.quizForm.reset();
     }
 }

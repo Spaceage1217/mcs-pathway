@@ -2,9 +2,12 @@ $shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
 $bootstrap-black:#343a40;
 $bootstrap-green:#28a745;
 $bootstrap-blue:#007bff;
+$radius: 6px;
+$quick: .5s;
 
 
 .card.question{
+  position: relative;
   text-align: left;
   padding: 40px;
   .btn{
@@ -21,6 +24,25 @@ $bootstrap-blue:#007bff;
         background:$bootstrap-green;
         color: white;
       }
+    }
+  }
+  .progress{
+    transition: $quick;
+    position: absolute;
+    height: 2px;
+    z-index: 100;
+    width: 100%;
+    background: rgba($bootstrap-blue,.8s);
+    box-shadow: 0 2px 40px rgba($bootstrap-blue,1);
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    top: 0;
+    left: 0;
+    //add progress bar
+    &.completed{
+      transition-delay: 2s;
+      background: rgba($bootstrap-green,.8s);
+      box-shadow: 0 2px 40px rgba($bootstrap-green,1);
     }
   }
 }

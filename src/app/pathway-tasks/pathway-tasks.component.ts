@@ -15,11 +15,13 @@ export class PathwayTasksComponent implements OnInit {
     private route: ActivatedRoute,
     private router:Router
   ) {}
-  pathway:Pathway;
-  tasks:Task[];
+  Current_task_ID:number;
   completed: boolean;
   hidden:boolean= false;
+  pathway:Pathway;
+  tasks:Task[];
   questions:Question[];
+
 
     ngOnInit(){
       this.route.data.subscribe(
@@ -44,7 +46,20 @@ export class PathwayTasksComponent implements OnInit {
       this.hidden=true;
       this.questions = questions;
     }
-    loadTasks(toggle){
+    setTaskID(id){
+        this.Current_task_ID = id;
+    }
+    loadTasks(){
       this.hidden = false;
+    }
+    completeTask(completed:boolean){
+        this.tasks[this.Current_task_ID-1].completed = completed;
+        let lastTask =this.tasks.length - 1;
+        console.log('last task index' + lastTask);
+        console.log(this.tasks[lastTask].completed )
+        if(this.tasks[lastTask-1].completed === true){
+          //if the last task is completed then set the pathway completed to true.
+           this.completed = true;
+        }
     }
 }
